@@ -15,18 +15,17 @@
 
 ## Quick start
 1. 确保本地可以访问chatgpt
-2. 查看本地ip
+2. 查看本地ip,查看方法
 ```shell
-# Windows 查看方法命令行输入
+# Windows 命令行输入
 ipconfig
-# Linux 查看ip方法
+# Linux 命令行输入
 ip address
 ```
 3. 
-
-   1. 将第2步得到的ip写入server.py和client.py
-   2. 本地运行server.py
-   3. 服务器端 在需要调用chatgpt的py文件里from client import run_client,通过调用run_client(prompt)来使用chatgpt
+   * 将第2步得到的ip写入server.py和client.py
+   * 本地运行server.py
+   * 服务器端 在需要调用chatgpt的py文件里from client import run_client,通过调用run_client(prompt)来使用chatgpt
 
 
 ## 相关知识
