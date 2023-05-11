@@ -23,6 +23,7 @@ ipconfig
 ip address
 ```
 3. 
+
    * 将第2步得到的ip写入server.py和client.py
    * 本地运行server.py
    * 服务器端 在需要调用chatgpt的py文件里from client import run_client,通过调用run_client(prompt)来使用chatgpt
