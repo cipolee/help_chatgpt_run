@@ -1,10 +1,10 @@
-# 基于socket通信的学校服务器使用chatgpt方法
+# 用socket通信让学校服务器也能调chatgpt api
 ## Overview
-事件起因：想探索一下对话阅读理解任务中调用chatgpt和问答模型交互，用来评估问答模型的回复能力，但是很快遇到一个问题: 问答模型放在学校服务器上，而学校服务器上不能直接调用chatgpt的api。
+事件起因：原本想探索一下对话阅读理解任务中调用chatgpt和问答模型交互，用来评估问答模型的回复能力，但是很快遇到一个问题: 问答模型放在学校服务器上，而学校服务器上不能直接调用chatgpt的api。。。
 
-因此如果实现通过服务器到本机的通信，既可以实现服务器调用chatgpt api。
+因为本地机器调chatgpt api是比较容易的，然后我想如果可以实现服务器到本机的通信，服务器发送请求到本地，本地调用chatgpt后将结果返回给服务器，是不是就相当于服务器在调chatgpt api了，于是就基于**socket**实现了服务器到本地的通信。
 
-服务器到本地的通信可以基于**socket**实现， 实现通信需要两个文件，client.py和server.py. server.py放在本地用来启动服务，client.py放在服务器，在需要访问chatgpt时调用client.py的函数run_client(prompt)。
+实现通信需要两个文件，client.py和server.py. server.py放在本地用来启动服务，client.py放在服务器，在需要访问chatgpt时调用client.py的函数run_client(prompt)。
 
 
 
