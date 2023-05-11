@@ -1,4 +1,4 @@
-# 用socket通信让学校服务器也能调chatgpt api
+# 用socket通信让学校服务器也能用chatgpt
 ## Overview
 事件起因：原本想探索一下调用chatgpt和问答模型做**交互**， 以评估问答模型的对话能力，但是很快遇到一个问题: 问答模型放在学校服务器上，而学校服务器不能直接调用chatgpt的api。。。
 
