@@ -3,6 +3,7 @@ import socket
 import openai
 import os
 import json
+import time
 os.environ["http_proxy"] = "http://127.0.0.1:7890"
 os.environ["https_proxy"] = "http://127.0.0.1:7890"
 def get_openai_response(messages, max_tokens=2048):
@@ -32,14 +33,22 @@ def run_server():
             print(f'connected by {addr}')
             # 接受客户端的发送数据，并进行解码
             client_data = conn.recv(2048).decode()
-            # 使用json反序列化传输的数据
-            messages = json.loads(client_data)
-            # 请求chatgpt
-            response = get_openai_response(messages)
-            print(response)
-            response_text = response.choices[0]['message']['content']
-            # 向客户端发送消息
-            conn.sendall(f'{response_text}'.encode())
+            try:
+                # 使用json反序列化传输的数据
+                messages = json.loads(client_data)
+                # 请求chatgpt
+                response = get_openai_response(messages)
+                print(response)
+                response_text = response.choices[0]['message']['content']
+                # 向客户端发送消息
+                conn.sendall(f'{response_text}'.encode())
+            except Exception as e:
+                print(e)
+                conn.sendall('transmission error'.encode())
+            finally:
+                i += 1
+                print(i)
+                time.sleep(20)
 
 
             i += 1
@@ -48,8 +57,8 @@ def run_server():
 
 if __name__ == '__main__':
     # 远程服务器的主机名和端口号
-    HOST = 'x.x.x.x' # 主机ip
-    PORT = 8888 # 端口号
+    HOST = 'x.x.x.x' # 主机ip，即服务器ip
+    PORT = 8888
     openai.api_key = '你的openai api_key'
     run_server()
 
