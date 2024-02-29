@@ -33,9 +33,9 @@ ipconfig
 ip address
 ```
 3. 
-  1. 将第2步得到的ip写入server.py和client.py
-  2. 本地运行server.py
-  3. 在服务器需要调用chatgpt的py文件里from client import run_client,通过调用run_client(prompt)来使用chatgpt
+  3.1. 将第2步得到的ip写入server.py和client.py
+  3.2. 本地运行server.py
+  3.3. 在服务器需要调用chatgpt的py文件里from client import run_client,通过调用run_client(prompt)来使用chatgpt
 
 
 ## 相关知识
